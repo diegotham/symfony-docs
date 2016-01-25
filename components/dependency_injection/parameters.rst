@@ -155,7 +155,18 @@ the parameter value in one place if needed.
 
         .. code-block:: xml
 
-            <argument>http://symfony.com/?foo=%%s&bar=%%d</argument>
+            <?xml version="1.0" encoding="UTF-8" ?>
+            <container xmlns="http://symfony.com/schema/dic/services"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://symfony.com/schema/dic/services
+                    http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+                <services>
+                    <service id="app.foo" class="AppBundle\Foo">
+                        <argument type="string"><![CDATA[http://symfony.com/?foo=%%s&bar=%%d]]></argument>
+                    </service>
+                </services>
+            </container>
 
         .. code-block:: php
 
